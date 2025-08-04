@@ -1,0 +1,56 @@
+<%- include("partials/header") %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card glass-card p-4 shadow">
+      <h2 class="mb-4 text-center text-primary">Check the Weather</h2>
+
+      <!-- Form -->
+      <form action="/" method="post">
+        <div class="mb-3">
+          <label for="city" class="form-label">City Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="city"
+            placeholder="e.g. Istanbul"
+            required
+          />
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i> Get Weather
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Weather Result -->
+    <% if (locals.weather) { %>
+    <div class="card mt-4 p-4 shadow-sm">
+      <h4 class="text-center mb-3">
+        Tomorrow's Weather in <%= weather.city %>
+        <br />
+        <small class="text-muted"><%= date %></small>
+      </h4>
+      <div class="text-center">
+        <img
+          src="http://openweathermap.org/img/wn/<%= weather.icon %>@2x.png"
+          alt="Weather Icon"
+        />
+      </div>
+      <ul class="list-unstyled text-center mt-3">
+        <li><strong>Description:</strong> <%= weather.description %></li>
+        <li><strong>Temperature:</strong> <%= weather.temp %>°C</li>
+        <li><strong>Humidity:</strong> <%= weather.humidity %>%</li>
+        <li><strong>Wind:</strong> <%= weather.wind %> m/s</li>
+      </ul>
+    </div>
+    <% } %> <% if (locals.error) { %>
+    <div class="alert alert-danger mt-4 text-center"><%= error %></div>
+    <% } %>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
