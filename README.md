@@ -91,12 +91,6 @@ It demonstrates practical usage of:
 
 ---
 
-## 📤 Code Sharing
-
-Feel free to fork or clone this repository.  
-I'd love to see what you build! You can tweet at [@yu_angela](https://twitter.com/yu_angela) to share your version.
-
----
 
 ## 📝 License
 
